@@ -19,16 +19,19 @@ class SimpleBlocObserver implements BlocObserver {
 
   @override
   void onError(BlocBase bloc, Object error, StackTrace stackTrace) {
+    // ignore: todo
     // TODO: implement onError
   }
 
   @override
   void onEvent(Bloc bloc, Object? event) {
+    // ignore: todo
     // TODO: implement onEvent
   }
 
   @override
   void onTransition(Bloc bloc, Transition transition) {
+    // ignore: todo
     // TODO: implement onTransition
   }
 }

@@ -24,26 +24,30 @@ class NoteItem extends StatelessWidget {
       child: Container(
         decoration: BoxDecoration(
           color: Color(note.color),
-          borderRadius: BorderRadius.circular(16),
+          // borderRadius: BorderRadius.circular(10),
         ),
-        padding: const EdgeInsets.only(left: 16, top: 24, bottom: 24),
+        padding: const EdgeInsets.only(left: 5, top: 10, bottom: 10),
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.end,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             ListTile(
               title: Text(
                 note.title,
+                overflow: TextOverflow.ellipsis,
+                maxLines: 1,
                 style: const TextStyle(
-                  fontSize: 26,
+                  fontSize: 20,
                   color: Colors.black,
                 ),
               ),
               subtitle: Padding(
-                padding: const EdgeInsets.symmetric(vertical: 16),
+                padding: const EdgeInsets.symmetric(vertical: 10),
                 child: Text(
                   note.subTitle,
+                  overflow: TextOverflow.ellipsis,
+                  maxLines: 5,
                   style: TextStyle(
-                    fontSize: 18,
+                    fontSize: 16,
                     color: Colors.black.withOpacity(.4),
                   ),
                 ),
@@ -51,18 +55,17 @@ class NoteItem extends StatelessWidget {
               trailing: IconButton(
                 onPressed: () {
                   note.delete();
-
                   BlocProvider.of<NotesCubit>(context).fetchAllNotes();
                 },
                 icon: const Icon(
                   Icons.delete,
                   color: Colors.black,
-                  size: 30,
+                  size: 25,
                 ),
               ),
             ),
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 24),
+              padding: const EdgeInsets.symmetric(horizontal: 20),
               child: Text(
                 note.date,
                 style: TextStyle(
