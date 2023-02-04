@@ -24,44 +24,42 @@ class NoteItem extends StatelessWidget {
       child: Container(
         decoration: BoxDecoration(
           color: Color(note.color),
-          // borderRadius: BorderRadius.circular(10),
+          borderRadius: BorderRadius.circular(10),
         ),
         padding: const EdgeInsets.only(left: 5, top: 10, bottom: 10),
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            ListTile(
-              title: Text(
-                note.title,
+            Text(
+              note.title,
+              overflow: TextOverflow.ellipsis,
+              maxLines: 1,
+              style: const TextStyle(
+                fontSize: 16,
+                color: Colors.black,
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: 10),
+              child: Text(
+                note.subTitle,
                 overflow: TextOverflow.ellipsis,
-                maxLines: 1,
-                style: const TextStyle(
-                  fontSize: 20,
-                  color: Colors.black,
+                maxLines: 3,
+                style: TextStyle(
+                  fontSize: 16,
+                  color: Colors.black.withOpacity(.4),
                 ),
               ),
-              subtitle: Padding(
-                padding: const EdgeInsets.symmetric(vertical: 10),
-                child: Text(
-                  note.subTitle,
-                  overflow: TextOverflow.ellipsis,
-                  maxLines: 5,
-                  style: TextStyle(
-                    fontSize: 16,
-                    color: Colors.black.withOpacity(.4),
-                  ),
-                ),
-              ),
-              trailing: IconButton(
-                onPressed: () {
-                  note.delete();
-                  BlocProvider.of<NotesCubit>(context).fetchAllNotes();
-                },
-                icon: const Icon(
-                  Icons.delete,
-                  color: Colors.black,
-                  size: 25,
-                ),
+            ),
+            IconButton(
+              onPressed: () {
+                note.delete();
+                BlocProvider.of<NotesCubit>(context).fetchAllNotes();
+              },
+              icon: const Icon(
+                Icons.delete,
+                color: Colors.black,
+                size: 25,
               ),
             ),
             Padding(

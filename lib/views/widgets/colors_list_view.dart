@@ -13,15 +13,15 @@ class ColorItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return isActive
         ? CircleAvatar(
-            radius: 38,
-            backgroundColor: Colors.white,
+            radius: 30,
+            backgroundColor: Colors.black,
             child: CircleAvatar(
-              radius: 34,
+              radius: 26,
               backgroundColor: color,
             ),
           )
         : CircleAvatar(
-            radius: 38,
+            radius: 30,
             backgroundColor: color,
           );
   }
@@ -40,13 +40,13 @@ class _ColorsListViewState extends State<ColorsListView> {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 38 * 2,
+      height: 34 * 2,
       child: ListView.builder(
         itemCount: kColors.length,
         scrollDirection: Axis.horizontal,
         itemBuilder: (context, index) {
           return Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 6),
+            padding: const EdgeInsets.symmetric(horizontal: 4),
             child: GestureDetector(
               onTap: () {
                 currentIndex = index;

@@ -40,7 +40,7 @@ class NotesApp extends StatelessWidget {
         locale: translator.activeLocale,
         supportedLocales: translator.locals(),
         debugShowCheckedModeBanner: false,
-        theme: ThemeData(brightness: Brightness.dark, fontFamily: 'Poppins'),
+        theme: translator.activeLanguageCode == 'ar' ? arTheme : enTheme,
         home: const NotesView(),
       ),
     );

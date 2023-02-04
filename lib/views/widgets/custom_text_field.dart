@@ -5,19 +5,22 @@ import 'package:localize_and_translate/localize_and_translate.dart';
 import 'package:notes_app/constants.dart';
 
 class CustomTextField extends StatelessWidget {
-  const CustomTextField(
-      {super.key,
-      this.hint,
-      this.maxLines = 1,
-      this.onSaved,
-      this.onChanged,
-      this.controller});
+  const CustomTextField({
+    super.key,
+    this.hint,
+    this.maxLines = 1,
+    this.onSaved,
+    this.onChanged,
+    this.controller,
+    this.fontSize = 14,
+  });
 
   final String? hint;
   final TextEditingController? controller;
   final int maxLines;
   final void Function(String?)? onSaved;
   final Function(String)? onChanged;
+  final double fontSize;
   @override
   Widget build(BuildContext context) {
     return TextFormField(
@@ -31,6 +34,7 @@ class CustomTextField extends StatelessWidget {
           return null;
         }
       },
+      style: TextStyle(fontSize: fontSize),
       cursorColor: kPrimaryColor,
       maxLines: maxLines,
       decoration: InputDecoration(
@@ -44,11 +48,12 @@ class CustomTextField extends StatelessWidget {
 
   OutlineInputBorder buildBorder([color]) {
     return OutlineInputBorder(
-        borderRadius: BorderRadius.circular(
-          8,
-        ),
-        borderSide: BorderSide(
-          color: color ?? Colors.white,
-        ));
+      borderRadius: BorderRadius.circular(
+        8,
+      ),
+      borderSide: const BorderSide(
+        color: Colors.transparent,
+      ),
+    );
   }
 }

@@ -37,9 +37,6 @@ class _EditNoteViewBodyState extends State<EditNoteViewBody> {
         child: SingleChildScrollView(
           child: Column(
             children: [
-              const SizedBox(
-                height: 10,
-              ),
               CustomAppBar(
                 iconOnPressed: () {
                   widget.note.title = titleController.text;
@@ -48,24 +45,19 @@ class _EditNoteViewBodyState extends State<EditNoteViewBody> {
                   BlocProvider.of<NotesCubit>(context).fetchAllNotes();
                   Navigator.pop(context);
                 },
-                title: 'editeNote'.tr(),
+                title: '',
                 icon: Icons.save,
-              ),
-              const SizedBox(
-                height: 20,
               ),
               CustomTextField(
                 controller: titleController,
-              ),
-              const SizedBox(
-                height: 16,
+                fontSize: 28,
+                hint: 'title'.tr(),
               ),
               CustomTextField(
                 controller: contentdController,
-                maxLines: 15,
-              ),
-              const SizedBox(
-                height: 16,
+                maxLines: 10,
+                fontSize: 20,
+                hint: 'content'.tr(),
               ),
               EditNoteColorsList(
                 note: widget.note,
